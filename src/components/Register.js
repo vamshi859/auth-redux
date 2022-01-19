@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import '../index.css'
-import {useHistory} from 'react-router-dom';
+import {useHistory,Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { register } from '../features/userSlice';
 
@@ -41,6 +41,7 @@ const Register = () => {
           <div className='form-group'>
             <button className='form-control btn btn-primary' style={{fontSize:"20px",height:"50px"}}>Register</button>
           </div>
+          <p className='text-center'>Already registered?<Link to='/' > Login</Link></p>
         </form>
       </div>
     </div>
