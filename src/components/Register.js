@@ -28,15 +28,15 @@ const Register = () => {
         <h4 className='pt-2 pl-3'>Register</h4>
         <form className='m-3' onSubmit={onHandleSubmit}>
           <div className='form-group'>
-            <span>E-Mail Address:</span><input type="email" className='form-control' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)}  />
+            <span>E-Mail Address:</span><input type="email" className='form-control' placeholder='Enter email' required onChange={(e) => setEmail(e.target.value)}  />
           </div>
           <div className='form-group'>
             <span>Name:</span>
-            <input type="text" className='form-control' placeholder='Enter Name' onChange={(e) => setName(e.target.value)} />
+            <input type="text" className='form-control' placeholder='Enter Name' required onChange={(e) => setName(e.target.value)} />
           </div>
           <div className='form-group'>
             <span>Password:</span>
-            <input type="password" className='form-control' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" className='form-control' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)} />
           </div>
           <div className='form-group'>
             <button className='form-control btn btn-primary' style={{fontSize:"20px",height:"50px"}}>Register</button>

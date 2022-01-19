@@ -12,15 +12,16 @@ const App = () => {
     if(users)
     {
       users = JSON.parse(users);
-    }
-    for(var i=0;i<users.length;i++)
-    {
-      if(users[i].token === true)
+      for(var i=0;i<users.length;i++)
       {
-        var user = users[i];
+        if(users[i].token === true)
+        {
+          var user = users[i];
+        }
       }
+      console.log(user)
     }
-    console.log(user)
+   
   return (
     <div>
       {user ? <Route path='/' exact component={Logout} />:<Route path='/' exact component={Login} />}
