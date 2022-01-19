@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Login from './components/Login';
+import {Route} from 'react-router-dom';
+import Register from './components/Register';
+import Logout from './components/Logout';
+// import {useSelector} from 'react-redux';
+// import {selectUser} from './features/userSlice';
 
-function App() {
+const App = () => {
+ 
+    var users = localStorage.getItem('users');
+    if(users)
+    {
+      users = JSON.parse(users);
+    }
+    for(var i=0;i<users.length;i++)
+    {
+      if(users[i].token === true)
+      {
+        var user = users[i];
+      }
+    }
+    console.log(user)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {user ? <Route path='/' exact component={Logout} />:<Route path='/' exact component={Login} />}
+
+      <Route path='/register' exact component={Register} />
     </div>
-  );
+  )
 }
 
 export default App;
