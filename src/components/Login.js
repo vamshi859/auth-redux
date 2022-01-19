@@ -27,11 +27,11 @@ const Login = () => {
             <h4 className='pt-2 pl-3'>Login</h4>
             <form className='m-3' onSubmit={(e) => handleSubmit(e)}>
               <div className='form-group'>
-                <span>E-Mail Address:</span><input type="email" className='form-control' placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
+                <span>E-Mail Address:</span><input type="email" className='form-control' required placeholder='Enter email' onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className='form-group'>
                 <span>Password:</span>
-                <input type="password" className='form-control' placeholder='Enter password' onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" className='form-control' placeholder='Enter password' required onChange={(e) => setPassword(e.target.value)}/>
               </div>
               <div className='form-group'>
                 <button className='form-control btn btn-primary' style={{fontSize:"20px",height:"50px"}}>Login</button>

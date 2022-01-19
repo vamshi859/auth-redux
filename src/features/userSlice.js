@@ -23,14 +23,27 @@ export const userSlice = createSlice({
     },
     login:(state,action) => {
       state.user = action.payload;
-      var auth = users.map((ele)=>{
-        if(ele.email===state.user.email && ele.password===state.user.password)
-        {
-          return {...ele,token:true}
-        }
-        return ele;
-      })
-      localStorage.setItem('users',JSON.stringify(auth));
+      var suser = users.filter((ele)=>{
+        return ele.email===state.user.email && ele.password===state.user.password;
+      });
+      var len = suser.length;
+      if(len===1)
+      {
+        var auth = users.map((ele)=>{
+          if(ele.email===state.user.email && ele.password===state.user.password)
+          {
+            return {...ele,token:true}
+          }
+          return ele;
+        })
+        localStorage.setItem('users',JSON.stringify(auth));
+        console.log(len);
+      }
+      else
+      {
+        alert("Invalid username or password");
+      }
+     
     },
     logout:(state,action) => {
       state.user = action.payload.user;
